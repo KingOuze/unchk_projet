@@ -4,8 +4,6 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -44,13 +42,8 @@ public class Formation {
         @Column(name = "archived")
         private Boolean archived;
 
-    public enum StatusFormation {
-        PENDING,
-        APPROVED,
-        REJECTED
-    }
-    @Enumerated(EnumType.STRING) // Si status est un enum
-    private StatusFormation status;
+    
+        private String status;
 
     // Getters and setters
 
@@ -105,10 +98,10 @@ public class Formation {
         this.archived = archived;
     }
 
-    public Enum<StatusFormation> getStatus() {
+    public String getStatus() {
         return status;
     }
-    public void setStatus(StatusFormation status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

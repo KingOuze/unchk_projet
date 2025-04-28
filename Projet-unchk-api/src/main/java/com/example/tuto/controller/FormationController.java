@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.tuto.service.FormationService;
 import com.example.tuto.entities.Formation;
-import com.example.tuto.entities.Formation.StatusFormation;
 import com.example.tuto.exception.dto.FormationDTO;
 
 import java.util.List;
@@ -82,7 +81,7 @@ public class FormationController {
     }
 
     @PatchMapping("/{id}/status")
-    public void updateFormationStatus(@PathVariable Long id, @RequestParam StatusFormation status) {
+    public void updateFormationStatus(@PathVariable Long id, @RequestBody String status) {
         formationService.changeFormationStatus(id, status);
     }
 }

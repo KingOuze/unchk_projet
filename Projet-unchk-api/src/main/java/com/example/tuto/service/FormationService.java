@@ -2,7 +2,6 @@ package com.example.tuto.service;
 
 import org.springframework.stereotype.Service;
 import com.example.tuto.entities.Formation;
-import com.example.tuto.entities.Formation.StatusFormation;
 import com.example.tuto.repository.FormationRepository;
 import com.example.tuto.exception.dto.FormationDTO;
 
@@ -75,7 +74,7 @@ public class FormationService {
     }
 
     //changer le statut d'une formation
-    public void changeFormationStatus(Long id, StatusFormation status) {
+    public void changeFormationStatus(Long id, String status) {
         Formation formation = formationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Formation not found"));
         formation.setStatus(status);

@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Null;
 
-import com.example.tuto.entities.Formation.StatusFormation;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,7 +33,7 @@ public class FormationDTO {
     
     private Boolean archived = false; // Nouveau champ pour l'archivage
         
-    private StatusFormation status;
+    private String status;
 
     //getter and setter methods
     public Long getId() {
@@ -88,10 +87,10 @@ public class FormationDTO {
         this.archived = archived;
     }
 
-    public StatusFormation getStatus() {
+    public String getStatus() {
         return status;
     }
-    public void setStatus(StatusFormation status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
