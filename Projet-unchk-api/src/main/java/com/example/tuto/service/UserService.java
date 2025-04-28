@@ -19,7 +19,6 @@ import com.example.tuto.repository.FormateurRepository;
 import com.example.tuto.repository.UserRepository;
 
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 
@@ -37,7 +36,6 @@ public class UserService {
 
 
     // Create
-    @Transactional
     public User createUser(User user) {
         // Hashing the password
         String hashedPassword = passwordEncoder.encode(user.getPassword());
@@ -91,11 +89,9 @@ public class UserService {
     }
 
     // Update
-     @Transactional
     public User updateUser(Long id, User userDetails) {
         User user = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
 
-        // Ne modifiez pas l'identifiant ici
         user.setNom(userDetails.getNom());
         user.setPrenom(userDetails.getPrenom());
         user.setEmail(userDetails.getEmail());
@@ -109,7 +105,7 @@ public class UserService {
     }
 
     // Delete
-    @Transactional
+    
     public void deleteUser(Long id) {
         User user = getUserById(id);
         
@@ -136,14 +132,13 @@ public class UserService {
     }
 
     //archive
-    @Transactional
     public void archiveUser(Long id) {
         User user = getUserById(id);
         user.setArchived(true);
         userRepository.save(user);
     }
     // Unarchive
-    @Transactional
+    
     public void unarchiveUser(Long id) {
         User user = getUserById(id);
         user.setArchived(false);

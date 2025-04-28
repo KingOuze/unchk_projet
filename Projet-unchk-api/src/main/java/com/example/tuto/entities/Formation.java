@@ -2,6 +2,7 @@ package com.example.tuto.entities;
 
 import java.util.Date;
 
+import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -42,7 +43,7 @@ public class Formation {
         @Column(name = "archived")
         private Boolean archived;
 
-    
+        @NonNull
         private String status;
 
     // Getters and setters

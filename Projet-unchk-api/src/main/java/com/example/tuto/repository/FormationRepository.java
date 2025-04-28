@@ -10,4 +10,8 @@ public interface FormationRepository extends JpaRepository<Formation, Long> {
     // Méthode pour récupérer les formations par userId
     @Query("SELECT f FROM Formation f WHERE f.userId = ?1")
     List<Formation> findByUserId(Long id);
+
+    // Méthode pour récupérer les formations par status
+    @Query("SELECT f FROM Formation f WHERE f.status = ?1")
+    List<Formation> findByStatus(String status);
 }

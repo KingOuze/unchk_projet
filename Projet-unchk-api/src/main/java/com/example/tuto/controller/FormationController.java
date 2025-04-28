@@ -84,5 +84,10 @@ public class FormationController {
     public void updateFormationStatus(@PathVariable Long id, @RequestBody String status) {
         formationService.changeFormationStatus(id, status);
     }
+
+    @GetMapping("/status/{status}")
+    public List<Formation> getFormationsByStatus(@PathVariable String status) {
+        return formationService.getFormationsByStatus(status);
+    }
 }
 

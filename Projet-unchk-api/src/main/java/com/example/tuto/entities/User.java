@@ -64,9 +64,9 @@ public class User  implements UserDetails {
         return id;
     }
 
-    /*public void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
-    }*/
+    }
 
     public String getNom() {
         return nom;

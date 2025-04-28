@@ -90,17 +90,15 @@ public class UserController {
         User existingUser = userService.getUserById(id);
             /* .orElseThrow(() -> new ResourceNotFoundException("User", "id", id));*/
 
-        // Vérifiez que l'identifiant n'est pas modifié
-        /*if (userDTO.getId() != null && !userDTO.getId().equals(id)) {
-            throw new IllegalArgumentException("L'identifiant de l'utilisateur ne peut pas être modifié.");
-        }*/
         
         // Mettez à jour l'utilisateur existant avec les nouvelles données
-        userMapper.updateEntity(userDTO, existingUser);
+        //userMapper.updateEntity(userDTO, existingUser);
         User updatedUser = userService.updateUser(id, existingUser);
         
         return ResponseEntity.ok(userMapper.convertToDto(updatedUser));
     }
+
+ 
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {

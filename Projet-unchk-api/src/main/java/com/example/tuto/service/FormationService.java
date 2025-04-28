@@ -91,4 +91,15 @@ public class FormationService {
         }
         return formations;
     }
+
+    //get formations by status
+    public List<Formation> getFormationsByStatus(String status) {
+        System.out.println("Status: " + status);  
+        // Récupérer les formations par status
+        List<Formation> formations = formationRepository.findByStatus(status);
+        if (formations.isEmpty()) {
+            throw new RuntimeException("Formation not found");
+        }
+        return formations;
+    }
 }
